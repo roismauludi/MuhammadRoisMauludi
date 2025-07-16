@@ -2,17 +2,34 @@ import React from 'react';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-100 w-full">
+    <div className="relative min-h-screen w-full overflow-hidden">
+      {/* Animated Gradient Background */}
+      <div className="absolute inset-0 -z-10 animate-gradient bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 opacity-60 blur-2xl" />
       {/* Header Sticky */}
+      {/* Wave SVG Background */}
+      <div className="absolute top-0 left-0 w-full -z-10">
+        <svg viewBox="0 0 1440 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-32 md:h-40">
+          <path fill="url(#waveGradient)" fillOpacity="0.5" d="M0,80 C360,180 1080,0 1440,100 L1440,0 L0,0 Z" />
+          <defs>
+            <linearGradient id="waveGradient" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#7F7FD5" />
+              <stop offset="0.5" stopColor="#86A8E7" />
+              <stop offset="1" stopColor="#91EAE4" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
       <header className="sticky top-0 z-20 bg-white shadow-md w-full py-4 mb-8">
-        <div className="max-w-4xl mx-auto flex flex-col items-center">
-          <img src="/assets/img/rois.jpg" alt="Foto Profil" className="w-32 h-32 rounded-full object-cover border-4 border-blue-200 shadow-lg mb-3" />
+        <div className="max-w-4xl mx-auto flex flex-col items-center relative">
+          {/* Gradient Blur Background Behind Profile */}
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-60 h-32 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 opacity-40 blur-2xl rounded-full -z-10" />
+          <img src="/assets/img/rois.jpg" alt="Foto Profil" className="w-32 h-32 rounded-full object-cover border-4 border-blue-200 shadow-2xl mb-3 transition-transform duration-300 hover:scale-105" />
           <h1 className="text-3xl sm:text-4xl font-bold text-blue-700 text-center">Muhammad Rois Mauludi</h1>
           <h2 className="text-lg sm:text-xl font-semibold text-gray-600 text-center mt-1">Backend Developer</h2>
           <div className="flex flex-col sm:flex-row items-center gap-2 mt-2 text-gray-700 text-base">
             <div className="flex items-center gap-1"><span className="text-blue-600">📧</span> muhammadroismauludi@gmail.com</div>
-            <div className="flex items-center gap-1"><span className="text-blue-600">📱</span> <a href="https://wa.me/6281276111520" target="_blank" rel="noopener noreferrer" className="text-green-600 underline hover:text-green-700">+62-812-7611-1520</a></div>
-            <div className="flex items-center gap-1"><span className="text-blue-600">🐙</span> <a href="https://github.com/roismauludi" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline">github.com/roismauludi</a></div>
+            <div className="flex items-center gap-1"><span className="text-blue-600">📱</span> <a href="https://wa.me/6281276111520" target="_blank" rel="noopener noreferrer" className="text-green-600 underline hover:text-green-700">Whatsapp</a></div>
+            <div className="flex items-center gap-1"><span className="text-blue-600">🐙</span> <a href="https://github.com/roismauludi" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline">GitHub</a></div>
           </div>
         </div>
       </header>
@@ -51,7 +68,9 @@ export default function Home() {
         </section>
         {/* Proyek */}
         <section className="mb-7">
-          <h3 className="text-xl font-bold text-blue-700 flex items-center gap-2 mb-4">📁 Proyek yang Pernah Dikerjakan</h3>
+          <div className="inline-block px-4 py-2 rounded-lg bg-black/30 backdrop-blur-sm mb-4">
+            <h3 className="text-xl font-bold text-white drop-shadow-lg flex items-center gap-2">📁 Proyek yang Pernah Dikerjakan</h3>
+          </div>
           <div className="grid md:grid-cols-2 gap-6">
             {/* Card Proyek */}
             <div className="bg-white rounded-xl shadow p-5 border-l-4 border-blue-600 transition-transform hover:scale-[1.025] hover:shadow-lg duration-150">
